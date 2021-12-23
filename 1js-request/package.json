@@ -1,0 +1,23 @@
+{
+  "name": "go-gin-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tester.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlekseyOgorodnikov/go-app-gin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlekseyOgorodnikov/go-app-gin/issues"
+  },
+  "homepage": "https://github.com/AlekseyOgorodnikov/go-app-gin#readme",
+  "dependencies": {
+    "follow-redirects": "^1.14.6"
+  }
+}

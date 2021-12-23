@@ -1,11 +1,17 @@
 package main
 
 import (
+	"fmt"
 	"go-gin-app/controller"
+	"go-gin-app/middlewares"
 	"go-gin-app/service"
+	"io"
+	"log"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
+	gindump "github.com/tpkeeper/gin-dump"
 )
 
 var (
@@ -13,8 +19,22 @@ var (
 	videoController controller.VideoController = controller.NewController(videoService)
 )
 
+func setupLogOutput() {
+	f, err := os.Create("./logs/gin.log")
+	if err != nil {
+		log.Printf("Open Log File Failed: %v", err)
+	}
+	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
+	fmt.Println("Init Gin log set ")
+}
+
 func main() {
-	server := gin.Default()
+
+	setupLogOutput()
+	server := gin.New()
+
+	server.Use(gin.Recovery(), middlewares.Logger(),
+		middlewares.BasicAuth(), gindump.Dump())
 
 	server.GET("/videos", func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, videoController.FindAll())
