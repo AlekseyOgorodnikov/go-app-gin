@@ -15,7 +15,7 @@ import (
 )
 
 var (
-	videoService    service.VideoService       = service.NewVideo()
+	videoService    service.VideoService       = service.New()
 	videoController controller.VideoController = controller.NewController(videoService)
 )
 

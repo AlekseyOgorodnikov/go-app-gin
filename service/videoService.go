@@ -11,7 +11,7 @@ type videoService struct {
 	videos []entity.Video
 }
 
-func NewVideo() VideoService {
+func New() VideoService {
 	return &videoService{}
 }
 
