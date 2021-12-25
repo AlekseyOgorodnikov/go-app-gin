@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"go-gin-app/controller"
 	"go-gin-app/middlewares"
+	"go-gin-app/repository"
 	"go-gin-app/service"
 	"io"
 	"log"
@@ -14,7 +15,8 @@ import (
 )
 
 var (
-	videoService    service.VideoService       = service.New()
+	videoRepository repository.VideoRepository = repository.NewVideoRepository()
+	videoService    service.VideoService       = service.New(videoRepository)
 	videoController controller.VideoController = controller.NewController(videoService)
 
 	loginService service.LoginService = service.NewLoginService()
@@ -33,6 +35,7 @@ func setupLogOutput() {
 }
 
 func main() {
+	defer videoRepository.CloseDB()
 
 	setupLogOutput()
 	server := gin.New()
@@ -72,6 +75,24 @@ func main() {
 				ctx.JSON(http.StatusOK, gin.H{"message": "Video input is valid!"})
 			}
 
+		})
+
+		apiRoutes.PUT("/videos/:id", func(ctx *gin.Context) {
+			err := videoController.Update(ctx)
+			if err != nil {
+				ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			} else {
+				ctx.JSON(http.StatusOK, gin.H{"message": "Success!"})
+			}
+		})
+
+		apiRoutes.DELETE("/videos/:id", func(ctx *gin.Context) {
+			err := videoController.Delete(ctx)
+			if err != nil {
+				ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			} else {
+				ctx.JSON(http.StatusOK, gin.H{"message": "Success!"})
+			}
 		})
 
 	}

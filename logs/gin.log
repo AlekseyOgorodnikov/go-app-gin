@@ -5,22 +5,49 @@
 [GIN-debug] GET    /css/*filepath            --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (1 handlers)
 [GIN-debug] HEAD   /css/*filepath            --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (1 handlers)
 [GIN-debug] Loaded HTML Templates (4): 
-	- header.html
-	- index.html
 	- 
 	- footer.html
+	- header.html
+	- index.html
 
 [GIN-debug] POST   /login                    --> main.main.func1 (3 handlers)
 [GIN-debug] GET    /api/videos               --> main.main.func2 (4 handlers)
 [GIN-debug] POST   /api/videos               --> main.main.func3 (4 handlers)
+[GIN-debug] PUT    /api/videos/:id           --> main.main.func4 (4 handlers)
+[GIN-debug] DELETE /api/videos/:id           --> main.main.func5 (4 handlers)
 [GIN-debug] GET    /view/videos              --> go-gin-app/controller.VideoController.ShowAll-fm (3 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-127.0.0.1 - [25 Dec 21 14:44 +04] POST /login 401 219.893µs 
-127.0.0.1 - [25 Dec 21 14:45 +04] POST /login 200 319.009µs 
-127.0.0.1 - [25 Dec 21 14:45 +04] POST /login 200 130.641µs 
-127.0.0.1 - [25 Dec 21 14:48 +04] GET /api/videos 200 1.526782ms 
-127.0.0.1 - [25 Dec 21 14:49 +04] POST /api/videos 400 415.264µs 
-127.0.0.1 - [25 Dec 21 14:49 +04] POST /api/videos 200 357.565µs 
-127.0.0.1 - [25 Dec 21 14:49 +04] GET /api/videos 200 417.422µs 
+127.0.0.1 - [25 Dec 21 16:03 +04] POST /login 200 320.64µs 
+127.0.0.1 - [25 Dec 21 16:04 +04] GET /api/videos 200 2.230475ms 
+127.0.0.1 - [25 Dec 21 16:04 +04] POST /api/videos 200 5.682893ms 
+127.0.0.1 - [25 Dec 21 16:04 +04] GET /api/videos 200 1.165205ms 
+127.0.0.1 - [25 Dec 21 16:06 +04] PUT /api/videos/1 200 901.681µs 
+127.0.0.1 - [25 Dec 21 16:06 +04] GET /api/videos 200 907.82µs 
+127.0.0.1 - [25 Dec 21 16:06 +04] GET /api/videos 200 871.332µs 
+127.0.0.1 - [25 Dec 21 16:07 +04] PUT /api/videos/1 200 3.42232ms 
+127.0.0.1 - [25 Dec 21 16:07 +04] GET /api/videos 200 983.534µs 
+127.0.0.1 - [25 Dec 21 16:08 +04] POST /api/videos 200 1.846719ms 
+127.0.0.1 - [25 Dec 21 16:08 +04] GET /api/videos 200 916.12µs 
+127.0.0.1 - [25 Dec 21 16:08 +04] POST /api/videos 200 904.126µs 
+127.0.0.1 - [25 Dec 21 16:08 +04] GET /api/videos 200 1.626934ms 
+127.0.0.1 - [25 Dec 21 16:08 +04] GET /api/videos 200 964.991µs 
+127.0.0.1 - [25 Dec 21 16:08 +04] POST /api/videos 200 854.286µs 
+127.0.0.1 - [25 Dec 21 16:08 +04] POST /api/videos 200 2.567624ms 
+127.0.0.1 - [25 Dec 21 16:08 +04] POST /api/videos 200 834.804µs 
+127.0.0.1 - [25 Dec 21 16:09 +04] GET /api/videos 200 904.837µs 
+127.0.0.1 - [25 Dec 21 16:09 +04] DELETE /api/videos/1 200 3.083751ms 
+127.0.0.1 - [25 Dec 21 16:09 +04] GET /api/videos 200 649.62µs 
+127.0.0.1 - [25 Dec 21 16:09 +04] POST /api/videos 200 886.895µs 
+127.0.0.1 - [25 Dec 21 16:09 +04] GET /api/videos 200 843.982µs 
+127.0.0.1 - [25 Dec 21 16:09 +04] GET /api/videos 200 525.229µs 
+127.0.0.1 - [25 Dec 21 16:09 +04] POST /api/videos 200 935.421µs 
+127.0.0.1 - [25 Dec 21 16:09 +04] POST /api/videos 200 2.873195ms 
+127.0.0.1 - [25 Dec 21 16:09 +04] GET /api/videos 200 604.097µs 
+127.0.0.1 - [25 Dec 21 16:10 +04] GET /api/videos 200 784.481µs 
+127.0.0.1 - [25 Dec 21 16:10 +04] POST /api/videos 200 757.061µs 
+127.0.0.1 - [25 Dec 21 16:10 +04] POST /api/videos 200 3.621603ms 
+127.0.0.1 - [25 Dec 21 16:10 +04] GET /api/videos 200 975.006µs 
+127.0.0.1 - [25 Dec 21 16:10 +04] DELETE /api/videos/1 200 572.992µs 
+127.0.0.1 - [25 Dec 21 16:10 +04] POST /login 200 522.361µs 
