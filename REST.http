@@ -1,0 +1,41 @@
+GET http://localhost:8080/api/videos HTTP/1.1
+###
+POST http://localhost:8080/api/videos HTTP/1.1
+content-type: application/json
+
+{
+    "title":"Cool NewReq",
+    "description":"PUT IN",
+    "url":"https://www.youtube.com/embed/C6MOKXm8x50",
+    "author":{
+        "firstname":"Aleksey",
+        "lastname":"Bodrov",
+        "age":32,
+        "email":"lex.101@mail.ru"
+    }
+}
+###
+POST http://localhost:8080/login HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+username=pragmatic
+&password=reviews
+###
+GET http://localhost:8080/api/videos HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicHJhZ21hdGljIiwiYWRtaW4iOnRydWUsImV4cCI6MTY0MDY4ODMzOSwiaWF0IjoxNjQwNDI5MTM5LCJpc3MiOiJwcmFnbWF0aWNyZXZpZXdzLmNvbSJ9.nSz40YsBdmt7P2s-5H35C1pistEvGLoEruhzODEDMRc
+###
+POST http://localhost:8080/api/videos HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicHJhZ21hdGljIiwiYWRtaW4iOnRydWUsImV4cCI6MTY0MDY4ODMzOSwiaWF0IjoxNjQwNDI5MTM5LCJpc3MiOiJwcmFnbWF0aWNyZXZpZXdzLmNvbSJ9.nSz40YsBdmt7P2s-5H35C1pistEvGLoEruhzODEDMRc
+
+{
+    "title":"Cool NReq",
+    "description":"PUT IN",
+    "url":"https://www.youtube.com/embed/C6MOKXm8x50",
+    "author":{
+        "firstname":"Aleksey",
+        "lastname":"Bodrov",
+        "age":32,
+        "email":"lex.101@mail.ru"
+    }
+}

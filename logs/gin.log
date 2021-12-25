@@ -10,16 +10,17 @@
 	- 
 	- footer.html
 
-[GIN-debug] GET    /api/videos               --> main.main.func1 (5 handlers)
-[GIN-debug] POST   /api/videos               --> main.main.func2 (5 handlers)
-[GIN-debug] GET    /view/videos              --> go-gin-app/controller.VideoController.ShowAll-fm (5 handlers)
+[GIN-debug] POST   /login                    --> main.main.func1 (3 handlers)
+[GIN-debug] GET    /api/videos               --> main.main.func2 (4 handlers)
+[GIN-debug] POST   /api/videos               --> main.main.func3 (4 handlers)
+[GIN-debug] GET    /view/videos              --> go-gin-app/controller.VideoController.ShowAll-fm (3 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-::1 - [24 Dec 21 16:05 +04] GET /api/videos 200 602.456µs 
-::1 - [24 Dec 21 16:05 +04] POST /api/videos 200 507.25µs 
-::1 - [24 Dec 21 16:05 +04] GET /view/videos 200 3.069602ms 
-::1 - [24 Dec 21 16:07 +04] GET /view/videos 200 1.392408ms 
-::1 - [24 Dec 21 16:07 +04] POST /api/videos 200 610.789µs 
-::1 - [24 Dec 21 16:08 +04] GET /view/videos 200 1.158115ms 
-::1 - [24 Dec 21 16:08 +04] GET /favicon.ico 404 263.847µs 
+127.0.0.1 - [25 Dec 21 14:44 +04] POST /login 401 219.893µs 
+127.0.0.1 - [25 Dec 21 14:45 +04] POST /login 200 319.009µs 
+127.0.0.1 - [25 Dec 21 14:45 +04] POST /login 200 130.641µs 
+127.0.0.1 - [25 Dec 21 14:48 +04] GET /api/videos 200 1.526782ms 
+127.0.0.1 - [25 Dec 21 14:49 +04] POST /api/videos 400 415.264µs 
+127.0.0.1 - [25 Dec 21 14:49 +04] POST /api/videos 200 357.565µs 
+127.0.0.1 - [25 Dec 21 14:49 +04] GET /api/videos 200 417.422µs 

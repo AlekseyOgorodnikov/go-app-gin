@@ -11,12 +11,16 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	gindump "github.com/tpkeeper/gin-dump"
 )
 
 var (
 	videoService    service.VideoService       = service.New()
 	videoController controller.VideoController = controller.NewController(videoService)
+
+	loginService service.LoginService = service.NewLoginService()
+	jwtService   service.JWTService   = service.NewJWTService()
+
+	loginController controller.LoginController = controller.NewLoginController(loginService, jwtService)
 )
 
 func setupLogOutput() {
@@ -36,10 +40,25 @@ func main() {
 	server.Static("/css", "./templates/css")
 	server.LoadHTMLGlob("templates/*.html")
 
-	server.Use(gin.Recovery(), middlewares.Logger(),
-		middlewares.BasicAuth(), gindump.Dump())
+	// server.Use(gin.Recovery(), middlewares.Logger(),
+	// 	middlewares.BasicAuth(), gindump.Dump())
 
-	apiRoutes := server.Group("/api")
+	server.Use(gin.Recovery(), middlewares.Logger())
+
+	// Login Endpoint: Authentication + Token creation
+	server.POST("/login", func(ctx *gin.Context) {
+		token := loginController.Login(ctx)
+
+		if token != "" {
+			ctx.JSON(http.StatusOK, gin.H{
+				"token": token,
+			})
+		} else {
+			ctx.JSON(http.StatusUnauthorized, nil)
+		}
+	})
+
+	apiRoutes := server.Group("/api", middlewares.AuthorizeJWT())
 	{
 		apiRoutes.GET("/videos", func(ctx *gin.Context) {
 			ctx.JSON(http.StatusOK, videoController.FindAll())
